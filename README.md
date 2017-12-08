@@ -1,6 +1,6 @@
-# Angular 4 Lazy Loading Boilerplate
+# Angular 5 Demo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.2.
 
 ## Development server
 
