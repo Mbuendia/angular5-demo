@@ -1,0 +1,13 @@
+<!-- pager.html -->
+<div class="pagination" *ngIf="count > 0">
+    <div class="col">
+        <span>{{ getMin() }} of {{ getMax() }} of {{ count }}</span>
+    </div>
+    <div class="row">
+            <div class="col">
+        <button (click)="onPrev()" [disabled]="page === 1 || loading">Previous</button>
+        <button *ngFor="let pageNum of getPages()" (click)="onPage(pageNum)">{{pageNum}}</button>
+        <button (click)="onNext()" [disabled]="lastPage() || loading">Next</button>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,17 @@
+.table-header{
+    background-color: grey;
+    color: white;
+    padding: 1em;
+    margin-bottom: 1em
+}
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+.row-table{
+    padding: 1.5em;
+    &:hover{
+        background-color: rgba(12, 1, 1, 0.25)
+    }
+}

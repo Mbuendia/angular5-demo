@@ -1,0 +1,33 @@
+<app-pagination
+(goPage)="goToPage($event)"
+(goNext)="onNext()"
+(goPrev)="onPrev()"
+[pagesToShow]="3"
+[page]="page"
+[perPage]="limit"
+[count]="total">
+</app-pagination>
+
+<div class="container">
+  <div class="table">
+      <div class="container table-header">
+          <div class="row">
+            <div class="col">Avatar</div>
+            <div class="col">Email</div>
+            <div class="col">Full Name</div>
+            <div class="col">Location</div>
+            <div class="col">Rating</div>
+          </div>
+        </div>
+    <div class="container" *ngFor="let person of peoplelist" (click)="pickUser(person.id)">
+     <div class="row row-table">
+        <div class="col"> <img class="img-responsive rounded" src="{{person.profile_picture}}"  onerror="this.onerror=null;this.src='assets/img/default.png';" /></div>
+        <div class="col"> {{person.email}}</div>
+        <div class="col"> {{person.full_name}}</div>
+        <div class="col"> {{person.location}}</div>
+        <div class="col"> {{person.comments[0].rating}}</div>
+      </div> 
+    </div>
+  </div>
+    
+</div>
