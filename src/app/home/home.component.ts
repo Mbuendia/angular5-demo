@@ -43,18 +43,21 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['person/' + ev]);
   }
   getPeople(){
+    this.loading = true;
     this._demoService.getPeopleList().subscribe(
       // the first argument is a function which runs on success
       data => { this.people = data;
         this.total = this.people.length;
         this.pages = this.total / this.page;
         this.getPeopleList(this.limit, this.page, this.pages, this.people);
-        this.loading = false;
       },
       // the second argument is a function which runs on error
       err => console.error(err),
       // the third argument is a function which runs on completion
-      () => console.log('done loading people')
+      () => {
+        this.loading = false; 
+        console.log('done loading people')
+    }
     );
   }
   goToPage(n: number): void {

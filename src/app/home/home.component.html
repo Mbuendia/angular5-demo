@@ -19,13 +19,21 @@
             <div class="col">Rating</div>
           </div>
         </div>
+        <div *ngIf="this.loading" class="container"><div class="progress">
+            <div class="indeterminate"></div>
+        </div></div>
     <div class="container" *ngFor="let person of peoplelist" (click)="pickUser(person.id)">
      <div class="row row-table">
         <div class="col"> <img class="img-responsive rounded" src="{{person.profile_picture}}"  onerror="this.onerror=null;this.src='assets/img/default.png';" /></div>
         <div class="col"> {{person.email}}</div>
         <div class="col"> {{person.full_name}}</div>
         <div class="col"> {{person.location}}</div>
-        <div class="col"> {{person.comments[0].rating}}</div>
+        <div class="col">   
+          <div class="chip">
+            
+            <span class="badge-rating">{{person.comments[0].rating}} <i class="material-icons">star</i></span>
+          </div>
+      </div>
       </div> 
     </div>
   </div>

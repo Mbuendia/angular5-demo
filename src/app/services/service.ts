@@ -20,19 +20,10 @@ export class DemoService {
         return this.http.get('http://demopeople.exolever.com/api/consultants/');
     }
 
-    // Uses Observable.forkJoin() to run multiple concurrent http.get() requests.
-    // The entire operation will result in an error state if any single request fails.
-    getBooksAndMovies() {
-        return Observable.forkJoin(
-        this.http.get('/api/books'),
-        this.http.get('/api/movies')
-        );
-    }
-
-    // send a PUT request to the API to update a data object
-    updateFood(food) {
-        let body = JSON.stringify(food);
-        return this.http.put('/api/food/' + food.id, body, httpOptions);
+    // send a POST request to the API to update a data object
+    addComment(params) {
+        let body = JSON.stringify(params);
+        return this.http.post('http://demopeople.exolever.com/api/comment/', params);
     }
 
     // send a DELETE request to the API to delete a data object

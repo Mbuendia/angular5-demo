@@ -1,19 +1,65 @@
 <div class="container">
 <div class="row">
-  <div class="col-8  text-center">
-    <div class="card sticky-action large">
+  <div class="col-12" > 
+  <div class="col-12  text-center">
+    <div class="card sticky-action large z-depth-2">
         <div class="card-image waves-effect waves-block waves-light">
             <img class="activator" src={{person.profile_picture}}  onerror="this.onerror=null;this.src='assets/img/default.png';" /> 
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">{{person.full_name}}<i class="material-icons right">more_vert</i></span>
-          <p> <a href="" (click)="sendMeHome()">volver a listado</a></p>
+          <p> <a href="" (click)="sendMeHome()">Go back to people list</a></p>
         </div>
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-          <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        </div>
+          <span class="card-title grey-text text-darken-4">Last Comments<i class="material-icons right">close</i></span>
+            <table>
+                <thead>
+                  <tr>
+                    <th>User</th>
+                    <th>Comment</th>
+                    <th>Created</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+              <tbody  *ngFor="let comment of comments">
+                <tr>
+                  <td>{{comment.user}}</td>
+                  <td>{{comment.body}}</td>
+                  <td>{{comment.created}}</td>
+                  <td>{{comment.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+
+          
+        <a class="btn-floating btn-large waves-effect waves-light red pulse modal-trigger" (click)="openModal()"><i class="material-icons">add</i></a>
+
+       
       </div> 
     </div>   
-  </div>     
+  </div> 
+  </div>   
+  <div id="modal" class="modal modal-fixed-footer" materialize="modal" [materializeActions]="actions">
+      <div class="modal-content">
+        <h4>Add comment</h4>
+        <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea1" class="materialize-textarea"  (change)="changevalue($event)">{{newcomment}}</textarea>
+                  <label for="textarea1">Comment</label>
+                </div>
+              </div>
+            </form>
+          </div>
+                
+      </div>
+      <div class="modal-footer">
+        <a  class="modal-action modal-close waves-effect waves-green btn-flat " (click)="addComment(person, newcomment)" >Add</a>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+            
